@@ -11,7 +11,6 @@ public class Main {
     }
 
     public static void Prettify(String formula){
-        //char pre_char = '|'; // Variabile tiene in memoria il carattere precedente
         int ind = 0; // Contatore di INDENT
         String new_line = System.getProperty("line.separator"); // In aleternativa al '\n' per uso su più sistemi
         // Trasforma la stringa in un array di caratteri e cicla dal primo all'ultimo
@@ -26,7 +25,6 @@ public class Main {
                     // imposta l'indent e memorizza il carattere come precedente
                     System.out.print(Indent(ind));
                 }
-                //pre_char = x;
                 case ')' -> {
                     // Se trova una parentesi tonda chiusa va a capo
                     System.out.print(new_line);
@@ -36,32 +34,22 @@ public class Main {
                     System.out.print(Indent(ind));
                     System.out.print(x);
                 }
-                // memorizza il carattere come precedente
-                //pre_char = x;
                 case ';' -> {
                     // Se trova un punto e virgole lo scrive e va a capo
                     System.out.print(x + new_line);
                     // imposta l'indent
                     System.out.print(Indent(ind));
                 }
-                // memorizza il carattere come precedente
-                //pre_char = x;
                 default ->
-                        // Scrive il carattere e lo memorizza come precedente
+                        // Scrive il carattere
                         System.out.print(x);
-
-                //pre_char = x;
             }
         }
     }
 
     private static String Indent(int n){
-        // Crea variabile da restituire
-        // concatena n TAB
-        // Restituisce il risultato
-        return "\t".repeat(Math.max(0, n))
-                // Restituisce il risultato
-                ;
+        // Restituisce TAB concatenati n volte
+        return "\t".repeat(Math.max(0, n));
     }
 
 }
